@@ -8,5 +8,6 @@ mydata3<-mydata2[mydata2$newdate==as.Date("2007-02-01")| mydata2$newdate== as.Da
 
 mydata3$newtime<-strptime(paste(mydata3$newdate, mydata3$Time, sep = " "),format="%Y-%m-%d %H:%M:%S")
 
-hist(mydata3$Global_active_power,col="red",xlab="Global Active Power (kilowatts)",ylim= c(0, 1200),las=1,main="Global Active Power")
 png("Plot1.png")
+hist(mydata3$Global_active_power,col="red",xlab="Global Active Power (kilowatts)",ylim= c(0, 1200),las=1,main="Global Active Power")
+dev.off()

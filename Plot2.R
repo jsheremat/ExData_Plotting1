@@ -7,9 +7,9 @@ mydata2$newdate<-as.Date(mydata$Date, "%d/%m/%Y")
 mydata3<-mydata2[mydata2$newdate==as.Date("2007-02-01")| mydata2$newdate== as.Date("2007-02-02"),]
 
 mydata3$newtime<-strptime(paste(mydata3$newdate, mydata3$Time, sep = " "),format="%Y-%m-%d %H:%M:%S")
-
+png("Plot2.png")
 with(mydata3,plot(newtime,Global_active_power,type="n",xlab="",ylab="Global Active Power (kilowatts)"))
 
 lines(mydata3$newtime2, mydata3$Global_active_power)
-png("Plot2.png")
 
+dev.off()

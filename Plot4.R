@@ -9,7 +9,7 @@ mydata3<-mydata2[mydata2$newdate==as.Date("2007-02-01")| mydata2$newdate== as.Da
 mydata3$newtime<-strptime(paste(mydata3$newdate, mydata3$Time, sep = " "),format="%Y-%m-%d %H:%M:%S")
 
 par(mfrow=c(2,2),mar=c(2.2,2.2,2.2,2.2),oma=c(1,1,1,1))
-
+png("Plot4.png")
 with(mydata3,plot(newtime,Global_active_power,type="n",xlab="",ylab="Global Active Power (kilowatts)"),ps=6)
 lines(mydata3$newtime, mydata3$Global_active_power,ps=6)
 
@@ -26,7 +26,7 @@ legend("topright",col=c("black","red","blue"),lwd=1,ps=6,legend=c("Sub-Metering_
 
 with(mydata3,plot(newtime,Global_reactive_power,type="n",xlab="datetime",ylab="Global_reactive_power",ps=6))
 lines(mydata3$newtime, mydata3$Global_reactive_power)
-png("Plot4.png")
+dev.off()
 
 
 
