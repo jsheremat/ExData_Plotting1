@@ -15,9 +15,8 @@ with(mydata3,plot(newtime, Sub_metering_1,type="n",xlab="",ylab="Energy sub mete
 lines(mydata3$newtime, mydata3$Sub_metering_1,col="black")
 lines(mydata3$newtime, mydata3$Sub_metering_2,col="red")
 lines(mydata3$newtime, mydata3$Sub_metering_3,col="blue")
-legend("topright",col=c("black","red","blue"),lwd=1,legend=c("Sub-Metering_1","Sub-Metering_2","Sub-Metering_3"))
+legend("topright",col=c("black","red","blue"),lwd=1,legend=c("Sub-Metering_1","Sub-Metering_2","Sub-Metering_3"),cex=0.8)
 
-with(mydata3, {plot(newtime,Global_active_power,type="n",xlab="",ylab="Global Active Power") plot(newtime,Voltage,type="n",xlab="datetime",ylab="Voltage") plot(newtime,Global_reactive_power,type="n",xlab="datetime",ylab="Global_reactive_power")plot(newtime,Global_reactive_power,type="n",xlab="datetime",ylab="Global_reactive_power")})
 
 
 dev.off()
