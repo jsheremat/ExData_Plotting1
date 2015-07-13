@@ -10,6 +10,6 @@ mydata3$newtime<-strptime(paste(mydata3$newdate, mydata3$Time, sep = " "),format
 png("Plot2.png")
 with(mydata3,plot(newtime,Global_active_power,type="n",xlab="",ylab="Global Active Power (kilowatts)"))
 
-lines(mydata3$newtime2, mydata3$Global_active_power)
+lines(mydata3$newtime, mydata3$Global_active_power)
 
 dev.off()
