@@ -8,25 +8,26 @@ mydata3<-mydata2[mydata2$newdate==as.Date("2007-02-01")| mydata2$newdate== as.Da
 
 mydata3$newtime<-strptime(paste(mydata3$newdate, mydata3$Time, sep = " "),format="%Y-%m-%d %H:%M:%S")
 
-par(mfrow=c(2,2),mar=c(2.2,2.2,2.2,2.2),oma=c(1,1,1,1))
-png("Plot4.png")
-with(mydata3,plot(newtime,Global_active_power,type="n",xlab="",ylab="Global Active Power (kilowatts)"),ps=6)
-lines(mydata3$newtime, mydata3$Global_active_power,ps=6)
+png("Plot4t.png")
 
-with(mydata3,plot(newtime,Voltage,type=”n”,xlab="datetime",ylab="Voltage"),ps=6)
-lines(mydata3$newtime, mydata3$Voltage)
+par(mfrow = c(2, 2)) 
 
-with(mydata3,plot(newtime, Sub_metering_1,type="n",xlab="",ylab="Energy sub metering (kilowatts)"),ps=6)
+with(mydata3,plot(newtime,Global_active_power,type="l", xlab="",ylab="Global Active Power (kilowatts)"), , cex=0.2)
 
-lines(mydata3$newtime, mydata3$Sub_metering_1,col="black")
-lines(mydata3$newtime, mydata3$Sub_metering_2,col="red")
-lines(mydata3$newtime, mydata3$Sub_metering_3,col="blue")
-legend("topright",col=c("black","red","blue"),lwd=1,ps=6,legend=c("Sub-Metering_1","Sub-Metering_2","Sub-Metering_3"))
+with(mydata3,plot(newtime,Voltage, type="l",xlab="datetime",ylab="Voltage"))
+
+with(mydata3,plot(newtime, Sub_metering_1, type="l",xlab="",ylab="Energy sub metering (kilowatts)"))
 
 
-with(mydata3,plot(newtime,Global_reactive_power,type="n",xlab="datetime",ylab="Global_reactive_power",ps=6))
-lines(mydata3$newtime, mydata3$Global_reactive_power)
+lines(mydata3$newtime, mydata3$Sub_metering_2, type="l"col="red")
+lines(mydata3$newtime, mydata3$Sub_metering_3, type="l"col="blue")
+legend("topright",c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),col=c("black","red","blue"), lty=, lwd=2.5, bty="o", cex=0.2)
+
+with(mydata3,plot(newtime,Global_reactive_power, type="l",xlab="datetime",ylab="Global_reactive_power",))
+
+
 dev.off()
+
 
 
 
